@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/firstScreenFragment"
-        android:name="com.example.retrofitdrill.FirstScreenFragment"
+        android:name="com.example.retrofitdrill.ui.FirstScreenFragment"
         android:label="fragment_first_screen"
         tools:layout="@layout/fragment_first_screen" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/animalListFragment"
-        android:name="com.example.retrofitdrill.AnimalListFragment"
+        android:name="com.example.retrofitdrill.ui.AnimalListFragment"
         android:label="fragment_animal_list"
         tools:layout="@layout/fragment_animal_list" />
 </navigation>

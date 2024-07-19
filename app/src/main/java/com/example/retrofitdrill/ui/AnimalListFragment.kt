@@ -1,10 +1,11 @@
-package com.example.retrofitdrill
+package com.example.retrofitdrill.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.retrofitdrill.R
 
 
 class AnimalListFragment : Fragment() {

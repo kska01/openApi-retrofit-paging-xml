@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">retrofitDrill</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="btn_go_list">유기동물 목록 확인하기</string>
+    <string name="tv_region">지역 : %s</string>
+    <string name="tv_sex">성별 : %s</string>
+    <string name="tv_age">나이 : %s</string>
+    <string name="tv_status">상태 : %s</string>
 </resources>

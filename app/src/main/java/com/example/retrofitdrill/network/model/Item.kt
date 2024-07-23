@@ -7,47 +7,47 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Item(
     @SerialName("age")
-    val age: String?,
+    val age: String,
     @SerialName("careAddr")
-    val careAddr: String?,
+    val careAddr: String,
     @SerialName("careNm")
-    val careNm: String?,
+    val careNm: String,
     @SerialName("careTel")
-    val careTel: String?,
+    val careTel: String,
     @SerialName("chargeNm")
-    val chargeNm: String?,
+    val chargeNm: String,
     @SerialName("colorCd")
-    val colorCd: String?,
+    val colorCd: String,
     @SerialName("desertionNo")
-    val desertionNo: String?,
+    val desertionNo: String,
     @SerialName("filename")
-    val filename: String?,
+    val filename: String,
     @SerialName("happenDt")
-    val happenDt: String?,
+    val happenDt: String,
     @SerialName("happenPlace")
-    val happenPlace: String?,
+    val happenPlace: String,
     @SerialName("kindCd")
-    val kindCd: String?,
+    val kindCd: String,
     @SerialName("neuterYn")
-    val neuterYn: String?,
+    val neuterYn: String,
     @SerialName("noticeEdt")
-    val noticeEdt: String?,
+    val noticeEdt: String,
     @SerialName("noticeNo")
-    val noticeNo: String?,
+    val noticeNo: String,
     @SerialName("noticeSdt")
-    val noticeSdt: String?,
+    val noticeSdt: String,
     @SerialName("officetel")
-    val officetel: String?,
+    val officetel: String,
     @SerialName("orgNm")
-    val orgNm: String?,
+    val orgNm: String,
     @SerialName("popfile")
-    val popfile: String?,
+    val popfile: String,
     @SerialName("processState")
-    val processState: String?,
+    val processState: String,
     @SerialName("sexCd")
-    val sexCd: String?,
+    val sexCd: String,
     @SerialName("specialMark")
-    val specialMark: String?,
+    val specialMark: String,
     @SerialName("weight")
-    val weight: String?
+    val weight: String
 )

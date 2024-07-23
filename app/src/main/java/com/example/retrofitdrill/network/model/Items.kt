@@ -7,5 +7,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Items(
     @SerialName("item")
-    val item: List<Item?>?
+    val item: List<Item>?
 )

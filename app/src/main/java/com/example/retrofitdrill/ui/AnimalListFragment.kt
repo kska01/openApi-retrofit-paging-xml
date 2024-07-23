@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import com.example.retrofitdrill.BuildConfig
 import com.example.retrofitdrill.R
 import com.example.retrofitdrill.databinding.FragmentAnimalListBinding
 import com.example.retrofitdrill.network.model.Item
@@ -12,8 +14,12 @@ import com.example.retrofitdrill.network.model.Item
 
 class AnimalListFragment : Fragment() {
 
+    private val viewModel: AnimalListViewModel by viewModels()
+
     private var _binding: FragmentAnimalListBinding? = null
     private val binding get() = _binding!!
+
+    private var list: List<Item>? = listOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +31,12 @@ class AnimalListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        println(BuildConfig.API_KEY)
+        println(viewModel.animalList.value?.get(0)?.age.toString())
         setupRecyclerView()
+        viewModel.getAnimalInfo()
+
     }
 
     private fun setupRecyclerView() {
@@ -33,7 +44,10 @@ class AnimalListFragment : Fragment() {
         binding.rvAnimalList.apply {
             adapter = animalListAdapter
         }
-        animalListAdapter.submitList(loadData())
+        viewModel.animalList.observe(viewLifecycleOwner) {
+            list = viewModel.animalList.value
+            animalListAdapter.submitList(list)
+        }
     }
 
     private fun loadData() = listOf(

@@ -23,25 +23,39 @@ class AnimalListViewModel : ViewModel() {
     private val _animalList = MutableLiveData<List<Item>?>()
     val animalList: LiveData<List<Item>?> get() = _animalList
 
-    init {
-        getAnimalInfo()
-    }
+    private var currentPage = 1
+    private var isLoading = false
+    private var hasMoreData = true
 
-    private var page = 0
+    init {
+        resetPagination()
+    }
 
     fun getAnimalInfo() {
         viewModelScope.launch {
+            isLoading = true
             _status.value = AnimalUiState.Loading
             try {
-                val response = AnimalApi.retrofitService.getAnimalInfo("${++page}")
+                val response = AnimalApi.retrofitService.getAnimalInfo("$currentPage")
                 if (response.isSuccessful) {
-                    val result = response.body()?.response?.body?.items?.item
-                    _status.value = AnimalUiState.Success(animalList = result)
-                    _animalList.value = result
+                    val newAnimals = response.body()?.response?.body?.items?.item
+                    val currentList = _animalList.value.orEmpty()
+                    _animalList.value = currentList + newAnimals!!
+                    currentPage++
+                    hasMoreData = newAnimals.isNotEmpty()
                 }
             } catch (e: Exception) {
-                println(e)
+                Log.e("exception", "$e")
+            } finally {
+                isLoading = false
             }
         }
+    }
+
+    private fun resetPagination() {
+        currentPage = 1
+        hasMoreData = true
+        _animalList.value = emptyList()
+        getAnimalInfo()
     }
 }

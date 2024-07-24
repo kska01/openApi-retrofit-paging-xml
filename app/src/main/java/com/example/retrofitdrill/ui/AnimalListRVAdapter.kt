@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import coil.transform.CircleCropTransformation
 import com.example.retrofitdrill.R
 import com.example.retrofitdrill.databinding.RvItemAnimalListBinding
 import com.example.retrofitdrill.network.model.Item
@@ -29,11 +31,18 @@ class AnimalListRVAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(animal: Item) {
             with(binding) {
+                sivAnimalImg.load((animal.popfile).toHttps())
                 tvRegion.text = root.context.getString(R.string.tv_region, animal.orgNm)
                 tvSex.text = root.context.getString(R.string.tv_sex, animal.sexCd)
                 tvAge.text = root.context.getString(R.string.tv_age, animal.age)
                 tvStatus.text = root.context.getString(R.string.tv_status, animal.processState)
             }
+        }
+
+        private fun String.toHttps(): String = when {
+            startsWith("https://", ignoreCase = true) -> this
+            startsWith("http://", ignoreCase = true) -> "https://${substring(7)}"
+            else -> "https://$this"
         }
     }
 

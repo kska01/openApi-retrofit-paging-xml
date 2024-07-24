@@ -35,6 +35,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="@string/tv_region"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/siv_animal_img" />
 
@@ -43,6 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_sex"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@id/tv_region"
         app:layout_constraintTop_toBottomOf="@id/tv_region" />
 
@@ -51,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_age"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@id/tv_sex"
         app:layout_constraintTop_toBottomOf="@id/tv_sex" />
 
@@ -60,6 +63,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
         android:text="@string/tv_status"
+        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@id/v_background"
         app:layout_constraintStart_toStartOf="@id/tv_age"
         app:layout_constraintTop_toBottomOf="@id/tv_age" />

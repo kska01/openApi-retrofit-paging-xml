@@ -18,7 +18,6 @@ interface AnimalsApiService {
     @GET("1543061/abandonmentPublicSrvc/abandonmentPublic?serviceKey=${BuildConfig.API_KEY}")
     suspend fun getAnimalInfo(
         @Query("pageNo") pageNo: String,
-        @Query("endde") endde: String = "20240723",
         @Query("numOfRows") numOfRows: String = "30",
         @Query("_type") type: String = "json"
     ): Response<AnimalResponse>

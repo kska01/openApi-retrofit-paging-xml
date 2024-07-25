@@ -19,3 +19,8 @@
 - [ ] DI 구현
 - [ ] Paging3 라이브러리 적용
 - [ ] Coil 라이브러리 최적화
+
+
+### 현재까지의 구현 모습
+https://github.com/user-attachments/assets/47a5774c-9aa3-421e-a7f1-9df2542c156a
+

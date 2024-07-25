@@ -4,8 +4,8 @@
 3. Coil Library 학습
 
 ### To Do
-- [ ] viewBinding과 Navigation 라이브러리로 Single Actitvity Architecture 구현
-  - [ ] firstScreenFragment : 화면 이동을 위한 버튼 구현
+- [/] viewBinding과 Navigation 라이브러리로 Single Actitvity Architecture 구현
+  - [/] firstScreenFragment : 화면 이동을 위한 버튼 구현
   - [ ] AnimalListFragment : 유기동물 리스트를 보여주기 위한 Recyclerview 구현
   - [ ] rv_item_animal_list.xml : Recyclerview의 item layout 구현
   - [ ] AnimalListRVAdapter : Recyclerview의 adpater, ListAdapter + DiffUtil 활용

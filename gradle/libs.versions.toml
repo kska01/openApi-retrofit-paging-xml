@@ -2,6 +2,7 @@
 agp = "8.4.0"
 coilCompose = "2.6.0"
 compiler = "3.1.4"
+databindingRuntime = "8.5.1"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -19,6 +20,8 @@ retrofit2KotlinxSerializationConverter = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-databinding-compiler = { module = "androidx.databinding:databinding-compiler", version.ref = "databindingRuntime" }
+androidx-databinding-runtime = { module = "androidx.databinding:databinding-runtime", version.ref = "databindingRuntime" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationFragmentKtx" }
 coil = { module = "io.coil-kt:coil", version.ref = "coilCompose" }

@@ -1,4 +1,4 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 import java.io.FileInputStream
 import java.util.Properties
 
@@ -49,6 +49,11 @@ android {
         dataBinding = true
         buildConfig = true
     }
+
+    packagingOptions {
+        exclude("META-INF/LICENSE.md")
+        exclude("META-INF/NOTICE.md")
+    }
 }
 
 
@@ -77,5 +82,7 @@ dependencies {
     implementation(libs.coil)
     // Data Binding
     kapt(libs.compiler)
+    implementation(libs.androidx.databinding.runtime)
+    implementation(libs.androidx.databinding.compiler)
 }
 

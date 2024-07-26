@@ -1,71 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:paddingTop="8dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/siv_animal_img"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/cutedog"
-        app:layout_constraintDimensionRatio="W,1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearance="@style/Siv_Animal_Image_Top_Corner_Style10" />
+    <data>
 
-    <View
-        android:id="@+id/v_background"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/shape_card_bottom_gray"
-        app:layout_constraintBottom_toBottomOf="@id/tv_status"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/siv_animal_img" />
+    </data>
 
-    <TextView
-        android:id="@+id/tv_region"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/tv_region"
-        android:textSize="13sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/siv_animal_img" />
+        android:padding="8dp"
+        android:paddingTop="8dp">
 
-    <TextView
-        android:id="@+id/tv_sex"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_sex"
-        android:textSize="13sp"
-        app:layout_constraintStart_toStartOf="@id/tv_region"
-        app:layout_constraintTop_toBottomOf="@id/tv_region" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/siv_animal_img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cutedog"
+            app:layout_constraintDimensionRatio="W,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/Siv_Animal_Image_Top_Corner_Style10" />
 
-    <TextView
-        android:id="@+id/tv_age"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_age"
-        android:textSize="13sp"
-        app:layout_constraintStart_toStartOf="@id/tv_sex"
-        app:layout_constraintTop_toBottomOf="@id/tv_sex" />
+        <View
+            android:id="@+id/v_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/shape_card_bottom_gray"
+            app:layout_constraintBottom_toBottomOf="@id/tv_status"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/siv_animal_img" />
 
-    <TextView
-        android:id="@+id/tv_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:text="@string/tv_status"
-        android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="@id/v_background"
-        app:layout_constraintStart_toStartOf="@id/tv_age"
-        app:layout_constraintTop_toBottomOf="@id/tv_age" />
+        <TextView
+            android:id="@+id/tv_region"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/tv_region"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/siv_animal_img" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_sex"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@id/tv_region"
+            app:layout_constraintTop_toBottomOf="@id/tv_region" />
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_age"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@id/tv_sex"
+            app:layout_constraintTop_toBottomOf="@id/tv_sex" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="@string/tv_status"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/v_background"
+            app:layout_constraintStart_toStartOf="@id/tv_age"
+            app:layout_constraintTop_toBottomOf="@id/tv_age" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

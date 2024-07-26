@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="animalInfo"
+            type="com.example.retrofitdrill.network.model.Item" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,12 +20,13 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/cutedog"
+            app:imageUrl="@{animalInfo.popfile}"
             app:layout_constraintDimensionRatio="W,1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearance="@style/Siv_Animal_Image_Top_Corner_Style10" />
+            app:shapeAppearance="@style/Siv_Animal_Image_Top_Corner_Style10"
+            tools:src="@drawable/cutedog" />
 
         <View
             android:id="@+id/v_background"
@@ -40,39 +44,43 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:text="@string/tv_region"
+            android:text="@{@string/tv_region(animalInfo.orgNm)}"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/siv_animal_img" />
+            app:layout_constraintTop_toBottomOf="@id/siv_animal_img"
+            tools:text="지역: 서울시" />
 
         <TextView
             android:id="@+id/tv_sex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tv_sex"
+            android:text="@{@string/tv_sex(animalInfo.sexCd)}"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@id/tv_region"
-            app:layout_constraintTop_toBottomOf="@id/tv_region" />
+            app:layout_constraintTop_toBottomOf="@id/tv_region"
+            tools:text="성별: F" />
 
         <TextView
             android:id="@+id/tv_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tv_age"
+            android:text="@{@string/tv_age(animalInfo.age)}"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@id/tv_sex"
-            app:layout_constraintTop_toBottomOf="@id/tv_sex" />
+            app:layout_constraintTop_toBottomOf="@id/tv_sex"
+            tools:text="나이: 2024년생" />
 
         <TextView
             android:id="@+id/tv_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="10dp"
-            android:text="@string/tv_status"
+            android:text="@{@string/tv_status(animalInfo.processState)}"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@id/v_background"
             app:layout_constraintStart_toStartOf="@id/tv_age"
-            app:layout_constraintTop_toBottomOf="@id/tv_age" />
+            app:layout_constraintTop_toBottomOf="@id/tv_age"
+            tools:text="상태: 보호중" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,8 +1,11 @@
 package com.example.retrofitdrill
 
+import android.widget.ImageView
+import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.retrofitdrill.network.model.Item
 import com.example.retrofitdrill.ui.AnimalListRVAdapter
 
@@ -12,8 +15,6 @@ fun setAnimalList(recyclerView: RecyclerView, data: List<Item>?) {
     val adapter = recyclerView.adapter as? AnimalListRVAdapter
     adapter?.submitList(data)
 }
-
-
 
 @BindingAdapter("onScrollListener")
 fun setOnScrollListener(recyclerView: RecyclerView, loadMore: () -> Unit) {
@@ -32,4 +33,10 @@ fun setOnScrollListener(recyclerView: RecyclerView, loadMore: () -> Unit) {
             }
         }
     })
+}
+
+@BindingAdapter("imageUrl")
+fun bindImage(imageView: ImageView, imgUrl: String) {
+    val url = imgUrl.toUri().buildUpon().scheme("https").build()
+    imageView.load(url)
 }

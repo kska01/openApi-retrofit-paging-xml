@@ -32,6 +32,8 @@ class AnimalListViewModel : ViewModel() {
     }
 
     fun getAnimalInfo() {
+        if (isLoading || !hasMoreData) return
+
         viewModelScope.launch {
             isLoading = true
             _status.value = AnimalUiState.Loading

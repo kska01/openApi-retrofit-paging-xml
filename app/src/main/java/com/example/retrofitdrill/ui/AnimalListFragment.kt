@@ -40,34 +40,6 @@ class AnimalListFragment : Fragment() {
         binding.rvAnimalList.adapter = AnimalListRVAdapter()
     }
 
-//    private fun setupRecyclerView() {
-//        val animalListAdapter = AnimalListRVAdapter()
-//
-//        binding.rvAnimalList.apply {
-//            adapter = animalListAdapter
-//            addOnScrollListener(object : RecyclerView.OnScrollListener() {
-//                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-//                    super.onScrolled(recyclerView, dx, dy)
-//                    val layoutManager = layoutManager as GridLayoutManager
-//                    val visibleItemCount = layoutManager.childCount
-//                    val totalItemCount = layoutManager.itemCount
-//                    val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
-//
-//                    if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount
-//                        && firstVisibleItemPosition >= 0
-//                    ) {
-//                        viewModel.getAnimalInfo()
-//                    }
-//                }
-//            })
-//        }
-//
-//        viewModel.animalList.observe(viewLifecycleOwner) {
-//            val animalList = viewModel.animalList.value
-//            animalListAdapter.submitList(animalList)
-//        }
-//    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

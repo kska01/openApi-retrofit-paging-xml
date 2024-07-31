@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.retrofitdrill.network.AnimalApi
+import com.example.retrofitdrill.data.NetworkAnimalInfoRepository
 import com.example.retrofitdrill.network.model.Item
 import kotlinx.coroutines.launch
 
@@ -38,7 +38,7 @@ class AnimalListViewModel : ViewModel() {
             isLoading = true
             _status.value = AnimalUiState.Loading
             try {
-                val response = AnimalApi.retrofitService.getAnimalInfo("$currentPage")
+                val response = NetworkAnimalInfoRepository().getAnimalInfo("$currentPage")
                 if (response.isSuccessful) {
                     val newAnimals = response.body()?.response?.body?.items?.item
                     val currentList = _animalList.value.orEmpty()

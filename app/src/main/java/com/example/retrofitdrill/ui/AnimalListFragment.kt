@@ -12,7 +12,7 @@ import com.example.retrofitdrill.databinding.FragmentAnimalListBinding
 
 class AnimalListFragment : Fragment() {
 
-    private val viewModel: AnimalListViewModel by viewModels()
+    private val viewModel: AnimalListViewModel by viewModels { AnimalListViewModel.Factory }
 
     private var _binding: FragmentAnimalListBinding? = null
     private val binding get() = _binding!!

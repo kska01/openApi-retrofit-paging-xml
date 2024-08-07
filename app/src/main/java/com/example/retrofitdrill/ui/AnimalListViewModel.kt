@@ -4,21 +4,17 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewModelScope
-import com.example.retrofitdrill.data.NetworkAnimalInfoRepository
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
+import com.example.retrofitdrill.AnimalInfoApplication
+import com.example.retrofitdrill.data.AnimalInfoRepository
 import com.example.retrofitdrill.network.model.Item
 import kotlinx.coroutines.launch
 
-sealed interface AnimalUiState {
-    data class Success(val animalList: List<Item>?) : AnimalUiState
-    data object Error : AnimalUiState
-    data object Loading : AnimalUiState
-}
-
-class AnimalListViewModel : ViewModel() {
-
-    private val _status = MutableLiveData<AnimalUiState>()
-    val status: LiveData<AnimalUiState> get() = _status
+class AnimalListViewModel(private val animalInfoRepository: AnimalInfoRepository) : ViewModel() {
 
     private val _animalList = MutableLiveData<List<Item>?>()
     val animalList: LiveData<List<Item>?> get() = _animalList
@@ -36,9 +32,8 @@ class AnimalListViewModel : ViewModel() {
 
         viewModelScope.launch {
             isLoading = true
-            _status.value = AnimalUiState.Loading
             try {
-                val response = NetworkAnimalInfoRepository().getAnimalInfo("$currentPage")
+                val response = animalInfoRepository.getAnimalInfo("$currentPage")
                 if (response.isSuccessful) {
                     val newAnimals = response.body()?.response?.body?.items?.item
                     val currentList = _animalList.value.orEmpty()
@@ -50,6 +45,16 @@ class AnimalListViewModel : ViewModel() {
                 Log.e("exception", "$e")
             } finally {
                 isLoading = false
+            }
+        }
+    }
+
+    companion object {
+        val Factory: ViewModelProvider.Factory = viewModelFactory {
+            initializer {
+                val application = (this[APPLICATION_KEY] as AnimalInfoApplication)
+                val animalInfoRepository = application.container.animalInfoRepository
+                AnimalListViewModel(animalInfoRepository = animalInfoRepository)
             }
         }
     }

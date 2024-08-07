@@ -18,8 +18,8 @@
 - [x] Retrofit2 + Kotlinx.serialization + Coil 구현
 - [x] open API의 page 파라미터에 맞춰 데이터 전송받아, Recyclerview에 데이터 연결 구현(LiveData)
 - [x] Data Binding + Binding adpaters 구현
-- [ ] Repository pattern 구현
-- [ ] DI 구현
+- [x] Repository pattern 구현
+- [x] DI 구현
 - [ ] Paging3 라이브러리 적용
 - [ ] Coil 라이브러리 최적화
 

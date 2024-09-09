@@ -84,5 +84,8 @@ dependencies {
     kapt(libs.compiler)
     implementation(libs.androidx.databinding.runtime)
     implementation(libs.androidx.databinding.compiler)
+    // Paging Library
+    implementation(libs.androidx.paging.runtime)
+
 }
 
